@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+<html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Add More Qualification</title>
+<style>
+form{
+margin: 20px 0;
+}
+form input, button{
+padding: 5px;
+}
+table{
+width: 100%;
+margin-bottom: 20px;
+border-collapse: collapse;
+}
+table, th, td{
+border: 1px solid #cdcdcd;
+}
+table th, table td{
+padding: 10px;
+text-align: left;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".add-row").click(function(){
+var name = $("#name").val();
+var examname = $("#examname").val();
+var grade = $("#grade").val();
+var year = $("#year").val();
+var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + examname + "</td> <td>" + grade + "</td> <td>" + year+"</td></tr>";
+$("table tbody").append(markup);
+});
 
-You can use the [editor on GitHub](https://github.com/Anisurrahmanlikohn/Add-Info/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Anisurrahmanlikohn/Add-Info/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+// Find and remove selected table rows
+$(".delete-row").click(function(){
+$("table tbody").find('input[name="record"]').each(function(){
+if($(this).is(":checked")){
+$(this).parents("tr").remove();
+}
+});
+});
+});    
+</script>
+</head>
+<body>
+<center><h1> Add Educational Background </h1> </center>
+<form>
+<input type="text" id="name" placeholder="Name"><br><p></p>
+<input type="text" id="examname" placeholder="Exam Name">
+<input type="text" id="grade" placeholder="Grade/GPA">
+<input type="text" id="year" placeholder="Year">
+<input type="button" class="add-row" value="Add Row">
+</form>
+<table>
+<thead>
+<tr>
+<th>Select</th>
+<th>Your Name</th>
+<th>Exam Name</th>
+<th>Grade/GPA</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<!-- <tr>
+<td><input type="checkbox" name="record"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> -->
+</tbody>
+</table>
+<button type="button" class="delete-row">Delete</button>
+</body> 
+</html>                            
