@@ -1,2 +1,2 @@
 # Add-Info
-https://anisurrahmanlikohn.github.io/Add-Info/
+https://anisurrahmanlikhon.github.io/Add-Info/
